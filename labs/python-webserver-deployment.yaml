@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: python-webserver
+  name: python-webserver
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: python-webserver
+  template:
+    metadata:
+      labels:
+        app: python-webserver
+    spec:
+      containers:
+      - image: python:3.14-alpine
+        env:
+        - name: PORT
+          value: "8000"
+        name: python
+        command: ["sh", "-c", "python -m http.server ${PORT}"]
+        ports:
+        - containerPort: 8000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+          timeoutSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+          timeoutSeconds: 1
+      initContainers:
+      - name: busybox
+        image: busybox
+        command: ["sleep", "10"]
+
+

@@ -1,0 +1,40 @@
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    container_name: rustdesk-hbbs
+    restart: unless-stopped
+    network_mode: host
+    command: ["hbbs", "-r", "${RUSTDESK_DOMAIN:-example.com}:${RUSTDESK_RELAY_PORT:-21117}", "-k", "_"]
+    volumes:
+      - rustdesk-data:/root
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 128M
+        reservations:
+          cpus: "0.05"
+          memory: 16M
+    depends_on:
+      - hbbr
+
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    container_name: rustdesk-hbbr
+    restart: unless-stopped
+    network_mode: host
+    command: ["hbbr", "-k", "_"]
+    volumes:
+      - rustdesk-data:/root
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+        reservations:
+          cpus: "0.05"
+          memory: 16M
+
+volumes:
+  rustdesk-data:
+    name: rustdesk-data

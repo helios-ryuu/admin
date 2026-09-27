@@ -1,0 +1,5 @@
+secrets/
+reports/
+.env
+apps/rustdesk/manifest
+apps/rustdesk/scripts

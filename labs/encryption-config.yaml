@@ -1,0 +1,15 @@
+apiVersion: apiserver.config.k8s.io/v1
+kind: EncryptionConfiguration
+resources:
+  - resources:
+      - secrets
+      - configmaps
+    providers:
+      - aescbc:
+          keys:
+            - name: key1
+              # See the following text for more details about the secret value
+              # fake key for demonstration purposes only, do not use in production!
+              secret: xAqmr7UH4iZMDftHsiYYmK1arU75Dhuru5zMoDxK2uA=
+      - identity: {} # this fallback allows reading unencrypted secrets;
+                     # for example, during initial migration
