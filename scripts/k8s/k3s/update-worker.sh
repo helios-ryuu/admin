@@ -165,6 +165,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+log_warn "[LƯU Ý] Chạy script shell là tùy chọn phụ trợ (KHÔNG KHUYẾN KHÍCH)."
+log_warn "Khuyến nghị thực hiện theo RUNBOOK.md với quy trình nâng cấp an toàn Pod."
+
 # Tự động nạp Node Token từ secrets nếu có
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." 2>/dev/null && pwd)"

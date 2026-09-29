@@ -87,6 +87,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+log_warn "[LƯU Ý] Chạy script shell là tùy chọn phụ trợ (KHÔNG KHUYẾN KHÍCH)."
+log_warn "Khuyến nghị thực hiện theo RUNBOOK.md phần 'Gỡ bỏ & Dọn dẹp Sạch sẽ'."
+
 # GỠ BỎ TỪ XA QUA SSH
 if [[ "$IS_LOCAL" = false && -n "$TARGET_SSH" ]]; then
     echo -e "${CYAN}======================================================================${NC}"

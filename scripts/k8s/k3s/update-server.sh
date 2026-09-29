@@ -148,6 +148,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+log_warn "[LƯU Ý] Chạy script shell là tùy chọn phụ trợ (KHÔNG KHUYẾN KHÍCH)."
+log_warn "Khuyến nghị thực hiện theo RUNBOOK.md với quy trình nâng cấp chuẩn."
+
 # =============================================================================
 # CHẾ ĐỘ 1: NÂNG CẤP TỪ XA QUA SSH (REMOTE UPGRADE MODE)
 # =============================================================================

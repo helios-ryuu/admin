@@ -10,6 +10,9 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+echo -e "\033[1;33m[LƯU Ý] Chạy script shell là tùy chọn phụ trợ (KHÔNG KHUYẾN KHÍCH).\033[0m"
+echo -e "\033[1;33mKhuyến nghị thực hiện theo RUNBOOK.md với file cấu hình chuẩn (/etc/rancher/k3s/config.yaml).\033[0m\n"
+
 # ==========================================
 # 1. PARSE THAM SỐ ĐẦU VÀO
 # ==========================================

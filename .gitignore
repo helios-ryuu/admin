@@ -4,3 +4,4 @@ reports/
 apps/rustdesk/manifest
 apps/rustdesk/scripts
 data/
+config*.yaml

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+echo -e "\033[1;33m[LƯU Ý] Chạy script shell là tùy chọn phụ trợ (KHÔNG KHUYẾN KHÍCH).\033[0m"
+echo -e "\033[1;33mKhuyến nghị thực hiện theo RUNBOOK.md phần 'Gỡ bỏ & Dọn dẹp Sạch sẽ'.\033[0m\n"
+
 echo "[+] 1. Chạy script gỡ bỏ mặc định của K3s Server..."
 if [ -f /usr/local/bin/k3s-uninstall.sh ]; then
     /usr/local/bin/k3s-uninstall.sh
